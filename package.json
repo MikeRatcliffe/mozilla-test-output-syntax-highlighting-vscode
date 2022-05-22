@@ -1,0 +1,33 @@
+{
+  "name": "mozilla-test-output-syntax-highlighting-vscode",
+  "displayName": "Mozilla Test Output Syntax Highlighting",
+  "description": "",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.67.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "contributes": {
+    "languages": [
+      {
+        "id": "test",
+        "aliases": [
+          "Mozilla Test Output"
+        ],
+        "extensions": [
+          ".test"
+        ],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "test",
+        "scopeName": "source.mozillatestoutput",
+        "path": "./syntaxes/test.tmLanguage.json"
+      }
+    ]
+  }
+}

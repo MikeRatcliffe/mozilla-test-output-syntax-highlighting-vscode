@@ -1,0 +1,87 @@
+{
+  "fileTypes": ["test"],
+  "name": "Mozilla Test Output",
+  "patterns": [
+    {
+      "match": "^\\s*\\d?\\d:\\d\\d[:.]\\d\\d",
+      "name": "comment"
+    },
+    {
+      "match": "\\bINFO\\b",
+      "name": "markup.inserted"
+    },
+    {
+      "match": "\\bTEST_START|TEST_END|TEST_KNOWN_FAIL|SUITE_START|SUITE_END\\b",
+      "name": "entity.name.type.class"
+    },
+    {
+      "match": "\\bTEST-INFO\\b",
+      "name": "string"
+    },
+    {
+      "match": "\\bEMITTING:",
+      "name": "constant.numeric"
+    },
+    {
+      "match": "WARNING:?",
+      "name": "keyword"
+    },
+    {
+      "match": "(\\+\\+|--).*",
+      "name": "comment"
+    },
+    {
+      "match": "\\bJavaScript strict warning:.*",
+      "name": "keyword"
+    },
+    {
+      "match": "\\[(JavaScript Warning:.+)\\]",
+      "captures": {
+        "1": {
+          "name": "keyword"
+        }
+      }
+    },
+    {
+      "match": "\\bconsole.warn:.*",
+      "name": "keyword"
+    },
+    {
+      "match": "(.*)(TEST-PASS)(.*)",
+      "captures": {
+        "1": {
+          "name": "comment"
+        },
+        "2": {
+          "name": "entity.name.function"
+        },
+        "3": {
+          "name": "text"
+        }
+      }
+    },
+    {
+      "match": "(.*)(TEST-INFO)(.*exceptions.*)",
+      "captures": {
+        "1": {
+          "name": "comment"
+        },
+        "2": {
+          "name": "string"
+        },
+        "3": {
+          "name": "text"
+        }
+      }
+    },
+    {
+      "match": ".*\\b[Ee]xception\\b.*",
+      "name": "invalid"
+    },
+    {
+      "match": ".*(JavaScript [Ee]rror:(?! \"The character encoding)|TEST-UNEXPECTED-FAIL|TEST-UNEXPECTED-PASS|DEBUG:|Stack trace:|Stack:|\"debugger\" keyword|doesn't exist:|console.error).*",
+      "name": "invalid"
+    }
+  ],
+  "scopeName": "source.mozillatestoutput"
+}
