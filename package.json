@@ -17,7 +17,7 @@
   "contributes": {
     "languages": [
       {
-        "id": "mozilla-test",
+        "id": "mozillatestoutputsyntaxhighlighter",
         "aliases": [
           "Mozilla Test Output"
         ],
@@ -29,7 +29,7 @@
     ],
     "grammars": [
       {
-        "language": "test",
+        "language": "mozillatestoutputsyntaxhighlighter",
         "scopeName": "source.mozillatestoutput",
         "path": "./syntaxes/test.tmLanguage.json"
       }
