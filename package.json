@@ -2,7 +2,12 @@
   "name": "mozilla-test-output-syntax-highlighting-vscode",
   "displayName": "Mozilla Test Output Syntax Highlighting",
   "description": "",
-  "version": "0.0.1",
+  "publisher": "MikeRatcliffe",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/MikeRatcliffe/mozilla-test-output-syntax-highlighting-vscode"
+  },
+  "version": "0.0.2",
   "engines": {
     "vscode": "^1.67.0"
   },
@@ -12,7 +17,7 @@
   "contributes": {
     "languages": [
       {
-        "id": "test",
+        "id": "mozilla-test",
         "aliases": [
           "Mozilla Test Output"
         ],
