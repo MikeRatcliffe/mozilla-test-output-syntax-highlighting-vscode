@@ -1,46 +1,78 @@
 {
+  "validColors": {
+    "entity.name.function": "#DCDCAA",
+    "constant.character.escape": "#d7ba7d",
+    "constant.numeric": "#B5CEA8",
+    "entity.name.type": "#4EC9B0",
+    "comment": "#6A9955",
+    "string.regexp": "#D16969",
+    "invalid": "#F44747",
+    "entity.name.variable": "#9CDCFE",
+    "keyword": "#569CD6",
+    "markup.bold": "#569CD6 Bold",
+    "string": "#CE9178",
+    "markup.bold string": "#CE9178 Bold",
+    "markup.italic string": "#CE9178 Italic",
+    "text": "#FFFFFF",
+    "markup.italic": "#FFFFFF Italic",
+    "markup.underline": "#FFFFFF Underline",
+    "punctuation.definition.tag": "#808080",
+    "keyword.control": "#C586C0"
+  },
   "fileTypes": ["test"],
   "name": "Mozilla Test Output",
   "patterns": [
     {
-      "match": "^\\s*\\d?\\d:\\d\\d[:.]\\d\\d",
+      "match": "\\bWARNING.*",
       "name": "comment"
     },
     {
-      "match": "\\bINFO\\b",
-      "name": "markup.inserted"
+      "match": "\\bconsole.warn:.*",
+      "name": "comment"
     },
     {
-      "match": "\\bTEST_START|TEST_END|TEST_KNOWN_FAIL|SUITE_START|SUITE_END\\b",
-      "name": "entity.name.type.class"
-    },
-    {
-      "match": "\\bTEST-INFO\\b",
-      "name": "string"
-    },
-    {
-      "match": "\\bEMITTING:",
-      "name": "constant.numeric"
-    },
-    {
-      "match": "WARNING:?",
-      "name": "entity.name.function"
-    },
-    {
-      "match": "(\\+\\+|--).*",
+      "match": "\\bJavaScript warning:.*",
       "name": "comment"
     },
     {
       "match": "\\bJavaScript strict warning:.*",
-      "name": "entity.name.function"
+      "name": "comment"
     },
     {
       "match": "\\[(JavaScript Warning:.+)\\]",
       "captures": {
         "1": {
-          "name": "entity.name.function"
+          "name": "comment"
         }
       }
+    },
+    {
+      "match": "^\\s*\\d?\\d:\\d\\d[:.]\\d\\d",
+      "name": "punctuation.definition.tag"
+    },
+    {
+      "match": "\\bINFO.*",
+      "name": "text"
+    },
+    {
+      "match": "\\b(TEST_START|TEST_END)\\b.*",
+      "name": "invalid"
+    },
+    {
+      "match": "\\b(TEST_KNOWN_FAIL|SUITE_START|SUITE_END)\\b.*",
+      "name": "entity.name.type"
+    },
+    {
+      "match": "\\bTEST-INFO.*",
+      "name": "string"
+    },
+    {
+      "match": "\\bEMITTING.*",
+      "name": "invalid"
+    },
+    {
+      "match": "(\\+\\+|--).*",
+      "name": "comment"
     },
     {
       "match": "([\\w\\.\\/\\<]*)(@)(.+)(:)(\\d+:\\d+)",
@@ -63,43 +95,35 @@
       }
     },
     {
-      "match": "\\bconsole.warn:.*",
-      "name": "entity.name.function"
-    },
-    {
-      "match": "\\bJavaScript warning:.*",
-      "name": "entity.name.function"
-    },
-    {
-      "match": "(.*)(TEST-PASS)(.*)",
+      "match": "^(chrome:\\/\\/.+\\.js)(:)([\\w\\.\\/\\<]+)(:)(\\d+)",
       "captures": {
         "1": {
-          "name": "comment"
+          "name": "keyword"
         },
         "2": {
-          "name": "entity.name.function"
+          "name": "constant.numeric.js"
         },
         "3": {
-          "name": "text"
+          "name": "keyword"
+        },
+        "4": {
+          "name": "keyword.operator"
+        },
+        "5": {
+          "name": "constant.numeric.js"
         }
       }
     },
     {
-      "match": "(.*)(TEST-INFO)(.*exceptions.*)",
-      "captures": {
-        "1": {
-          "name": "comment"
-        },
-        "2": {
-          "name": "string"
-        },
-        "3": {
-          "name": "text"
-        }
-      }
+      "match": "\\bPASS.*",
+      "name": "entity.name.type"
     },
     {
-      "match": ".*\\b[Ee]xception\\b.*",
+      "match": "\\bTEST-PASS.*",
+      "name": "entity.name.type"
+    },
+    {
+      "match": "\\bFAIL.*",
       "name": "invalid"
     },
     {
@@ -107,7 +131,7 @@
       "name": "invalid"
     },
     {
-      "match": "(GECKO)(\\()(24592)(\\))",
+      "match": "(GECKO)(\\()(\\d+)(\\))",
       "captures": {
         "1": {
           "name": "keyword.control"
